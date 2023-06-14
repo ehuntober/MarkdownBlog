@@ -6,10 +6,10 @@ const app = express()
 mongoose.connect('mongodb://localhost/blog',{
     useNewUrlParser: true, useUnifiedTopology: true
 })
+app.use(express.urlencoded({extended: false}))
 
 app.set('view engine', 'ejs')
 app.use('/articles', articleRouter)
-app.use(express.urlencoded({extended: false}))
 
 app.get('/', (req,res)=>{
 
